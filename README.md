@@ -19,10 +19,7 @@ Example:
 	<div class="slider-wrapper">
 		<div class="slider-container">
 			<div class="elem">
-				<img src="img/1.jpg" alt="">
 			</div>
-			<div class="elem">
-        ...
-			</div>
+		</div>	
 	</div>
 
