@@ -1,1 +1,3 @@
-var slider = new SimpleSlider();
+var slider = new SimpleSlider({
+	slideWidth : 600
+});

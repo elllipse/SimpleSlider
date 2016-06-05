@@ -2,8 +2,10 @@
 function SimpleSlider(options){
 	//options
 	options = options || {};
-	var interval;
+	var nav = options.nav || false;
+
 	var width = options.slideWidth || 600;
+	var interval;
 	var currentSlide = 1;
 	var currentPos = 0;
 
@@ -11,9 +13,36 @@ function SimpleSlider(options){
 	var $wrapper = $(".slider-wrapper");
 	var $container = $wrapper.find(".slider-container");
 	var slidesQty = $container[0].children.length;
+	var $navPrev = $wrapper.find('.slider-controls .nav.prev');
+	var $navNext = $wrapper.find('.slider-controls .nav.next');
+
+	// styles
+	$wrapper.css('width', width);
+
 
 	// events
-	$wrapper.hover(function() {stop()}, function() {autoPlay()});
+	$wrapper.hover(sliderOver, sliderOut);
+	$navPrev.on('click', moveBackward);
+	$navNext.on('click', moveForward);
+
+	function sliderInit() {
+		autoPlay();
+		if (nav) {
+			createNavigation();
+		}
+	}
+
+	function createNavigation() {
+
+	}
+
+	function sliderOver() {
+		stop();
+	}
+
+	function sliderOut() {
+		autoPlay();
+	}
 
 	function autoPlay() {
 		interval = setInterval(moveForward,3000);
@@ -53,7 +82,7 @@ function SimpleSlider(options){
 		},1000);
 	}
 
-	autoPlay()
+	sliderInit();
 
 }
 
