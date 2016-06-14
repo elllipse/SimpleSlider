@@ -2,7 +2,7 @@
   display: inline-block
   overflow: hidden
   position: relative
-  width: 600px
+  width: 100%
 
 .simple-slider
   margin-left: 0px
@@ -21,8 +21,7 @@
   width: 100%
   height: 100%
   position: absolute
-  display: block
-  transition: all .25s ease
+  display: none
   .nav
     display: block
     position: relative
@@ -32,7 +31,6 @@
     margin: 5px
     top: 50%
     margin-top: -25px
-    transition: all .25s ease
     opacity: 0.7
     &.prev
       float: left
@@ -46,9 +44,6 @@
       content: "◄"
     &.next:before
       content: "►"
-
-.ss-wrapper:hover .ss-controls
-  display: block
 
 .ss-controls .nav:hover
   transform: scale(1.1)
